@@ -1,0 +1,156 @@
+[gd_scene load_steps=17 format=3 uid="uid://cibr8h3arwxdt"]
+
+[ext_resource type="Texture2D" uid="uid://bp3uexj3q28p" path="res://assets/sprites/spikes.png" id="1_htn6p"]
+[ext_resource type="PackedScene" uid="uid://rwf2x3g8i2ud" path="res://scenes/utility/kill_zone.tscn" id="2_ctypd"]
+[ext_resource type="Script" uid="uid://c3iok8gfmxvh0" path="res://scripts/objects/spike.gd" id="2_dh74s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwvt7"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(112, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftmg1"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(96, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k33j"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(80, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udpg7"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(64, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8bve"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(48, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byy2c"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(32, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnqie"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(32, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gai1"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(48, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1757"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(64, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx072"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(80, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gn84"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(96, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qxd7"]
+atlas = ExtResource("1_htn6p")
+region = Rect2(112, 0, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xh0e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwvt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftmg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k33j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udpg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8bve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byy2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnqie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gai1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1757")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx072")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gn84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qxd7")
+}],
+"loop": true,
+"name": &"grow",
+"speed": 4.0
+}]
+
+[node name="Spike" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xh0e4")
+animation = &"grow"
+frame = 2
+frame_progress = 0.789208
+script = ExtResource("2_dh74s")
+
+[node name="KillZone" parent="." instance=ExtResource("2_ctypd")]
+
+[node name="KolizjaKolcyKlatka0" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 10, 5, 10, 0, 10)
+disabled = true
+
+[node name="KolizjaKolcyKlatka1" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 10, 5, 10, 0, 10)
+disabled = true
+
+[node name="KolizjaKolcyKlatka2" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-3, 8, 4, 8, 0, 3)
+disabled = true
+
+[node name="KolizjaKolcyKlatka3" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-3, 8, 4, 8, 1, 3)
+disabled = true
+
+[node name="KolizjaKolcyKlatka4" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 8, 5, 8, 0, -2)
+disabled = true
+
+[node name="KolizjaKolcyKlatka5" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 8, 5, 8, 0, -2)
+disabled = true
+
+[node name="KolizjaKolcyKlatka6" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 8, 5, 8, 0, -2)
+disabled = true
+
+[node name="KolizjaKolcyKlatka7" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 8, 5, 8, 0, -2)
+disabled = true
+
+[node name="KolizjaKolcyKlatka8" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-3, 8, 4, 8, 0, 3)
+disabled = true
+
+[node name="KolizjaKolcyKlatka9" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-3, 8, 4, 8, 1, 3)
+disabled = true
+
+[node name="KolizjaKolcyKlatka10" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 10, 5, 10, 0, 10)
+disabled = true
+
+[node name="KolizjaKolcyKlatka11" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-6, 10, 5, 10, 0, 10)
+disabled = true
+
+[connection signal="frame_changed" from="." to="." method="_on_frame_changed"]

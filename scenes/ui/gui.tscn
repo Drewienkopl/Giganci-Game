@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0jafe7gm4xei"]
+
+[ext_resource type="Script" uid="uid://ch87w247ahxnr" path="res://scripts/utility/timer_text.gd" id="1_3f2kh"]
+[ext_resource type="Texture2D" uid="uid://d3nyfj4iucqlh" path="res://assets/sprites/GUI_elements/healthbar.png" id="3_g2dwb"]
+[ext_resource type="Texture2D" uid="uid://b26fo61fs2yyb" path="res://assets/sprites/singlecoin.png" id="3_qu8lo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+font_size = 25
+font_color = Color(0.105882, 0.243137, 0.647059, 1)
+outline_color = Color(0.113725, 0.101961, 0.235294, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb880"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 7, 47, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu8lo"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 39, 47, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2dwb"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 71, 47, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suhd1"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 103, 47, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb6ab"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 135, 47, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o64uq"]
+atlas = ExtResource("3_g2dwb")
+region = Rect2(0, 167, 47, 19)
+
+[node name="GUI" type="CanvasLayer"]
+layer = 20
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="HBoxContainer" parent="MarginContainer/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TimerText" type="Label" parent="MarginContainer/Container/Top"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+label_settings = SubResource("LabelSettings_u5sy4")
+text_direction = 1
+script = ExtResource("1_3f2kh")
+
+[node name="Middle" type="HBoxContainer" parent="MarginContainer/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Bottom" type="HBoxContainer" parent="MarginContainer/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CollectedCoins" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 29.0
+offset_top = 40.0
+offset_right = 94.0
+offset_bottom = 86.0
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CollectedCoins"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinTexture" type="TextureRect" parent="CollectedCoins/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_qu8lo")
+expand_mode = 2
+
+[node name="coinsLabel" type="Label" parent="CollectedCoins/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Health" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_top = 21.0
+offset_right = -32.0
+offset_bottom = 128.0
+grow_horizontal = 0
+
+[node name="Hearts" type="NinePatchRect" parent="Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -60.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart5" type="TextureRect" parent="Health/Hearts"]
+z_index = 5
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_bb880")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart4" type="TextureRect" parent="Health/Hearts"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_qu8lo")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="Health/Hearts"]
+z_index = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.6842
+offset_right = 45.6842
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_g2dwb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="Health/Hearts"]
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_suhd1")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart1" type="TextureRect" parent="Health/Hearts"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_kb6ab")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Heart6" type="TextureRect" parent="Health/Hearts"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_o64uq")
+expand_mode = 3
+stretch_mode = 4

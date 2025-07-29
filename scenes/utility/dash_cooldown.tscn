@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://5uiw5nlf7yf4"]
+
+[node name="DashCooldown" type="Timer"]
+one_shot = true

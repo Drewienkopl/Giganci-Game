@@ -1,0 +1,122 @@
+[gd_scene load_steps=15 format=3 uid="uid://b0vljor23fukb"]
+
+[ext_resource type="Script" uid="uid://bklcrrptllwfa" path="res://scripts/characters/npc/talking_npc/npc.gd" id="1_0cag5"]
+[ext_resource type="Texture2D" uid="uid://cxoef74spma7p" path="res://assets/sprites/NPC/idle.png" id="2_cj0vg"]
+[ext_resource type="Texture2D" uid="uid://v2fpgxgrkv3h" path="res://assets/sprites/NPC/left.png" id="3_3vaor"]
+[ext_resource type="PackedScene" uid="uid://dwhfv2y5jvpiq" path="res://scenes/characters/npc/talking_npc/dialogue.tscn" id="3_41p2p"]
+[ext_resource type="Texture2D" uid="uid://b8hhd3sr0hrbt" path="res://assets/sprites/NPC/right.png" id="4_68bhj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga6cw"]
+atlas = ExtResource("2_cj0vg")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwlji"]
+atlas = ExtResource("2_cj0vg")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrktr"]
+atlas = ExtResource("3_3vaor")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu3wv"]
+atlas = ExtResource("3_3vaor")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73itr"]
+atlas = ExtResource("4_68bhj")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0nl0"]
+atlas = ExtResource("4_68bhj")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ga6cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga6cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwlji")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrktr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu3wv")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73itr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0nl0")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj0vg"]
+size = Vector2(7, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrktr"]
+radius = 24.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_0cag5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -11)
+sprite_frames = SubResource("SpriteFrames_ga6cw")
+animation = &"walking_right"
+frame_progress = 0.377717
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -2.5)
+shape = SubResource("RectangleShape2D_cj0vg")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_jrktr")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("3_41p2p")]
+offset_top = -8.0
+offset_bottom = -8.0
+
+[node name="RayCastRightBottom" type="RayCast2D" parent="."]
+position = Vector2(10, 1)
+target_position = Vector2(0, 12)
+collision_mask = 255
+
+[node name="RayCastLeftBottom" type="RayCast2D" parent="."]
+position = Vector2(-10, 1)
+target_position = Vector2(0, 12)
+collision_mask = 255
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(17, 0)
+collision_mask = 255
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-17, 0)
+collision_mask = 255
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

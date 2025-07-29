@@ -1,0 +1,239 @@
+[gd_scene load_steps=14 format=3 uid="uid://dv88gjl1pgwor"]
+
+[ext_resource type="Script" uid="uid://d3ktmi4dja6b8" path="res://scripts/ui/wybor_poziomu.gd" id="1_2a5sr"]
+[ext_resource type="Texture2D" uid="uid://cp15bl0db3ule" path="res://assets/sprites/Backgrounds/tlo_final.png" id="2_4mdrm"]
+[ext_resource type="Texture2D" uid="uid://bc24qvgynud75" path="res://assets/images/samouczek.png" id="3_4mdrm"]
+[ext_resource type="Texture2D" uid="uid://pg3yueensube" path="res://assets/images/poziom1.png" id="4_62yfl"]
+[ext_resource type="Texture2D" uid="uid://dunviafy4ip6x" path="res://assets/images/poziom2.png" id="5_pbw62"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2a5sr"]
+texture = ExtResource("2_4mdrm")
+modulate_color = Color(0.400698, 0.400698, 0.400697, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_scr30"]
+texture = ExtResource("3_4mdrm")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpile"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a5sr"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.458405, 0.458405, 0.458405, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scr30"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.396889, 0.396889, 0.396889, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwryq"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.593134, 0.593134, 0.593133, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h45im"]
+texture = ExtResource("4_62yfl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ulfsv"]
+texture = ExtResource("5_pbw62")
+
+[node name="Wybor_poziomu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2a5sr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2a5sr")
+
+[node name="Whole Test" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_right = 475.0
+offset_bottom = 324.0
+grow_vertical = 2
+
+[node name="Test Level" type="VBoxContainer" parent="Whole Test"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Level Test sign" type="Label" parent="Whole Test/Test Level"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 39
+text = "Samouczek"
+
+[node name="Level Test Panel" type="Panel" parent="Whole Test/Test Level"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_scr30")
+
+[node name="Pucharek_showcase_level" type="TextureRect" parent="Whole Test/Test Level/Level Test Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play Test Level" type="Button" parent="Whole Test/Test Level"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpile")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2a5sr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_scr30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwryq")
+text = "Zagraj Samouczek"
+
+[node name="Whole Level 1" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -324.0
+offset_right = 175.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Test Level" type="VBoxContainer" parent="Whole Level 1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Level 1 sign" type="Label" parent="Whole Level 1/Test Level"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 39
+text = "Poziom 1"
+
+[node name="Level 2 Panel" type="Panel" parent="Whole Level 1/Test Level"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h45im")
+
+[node name="Pucharek_level1" type="TextureRect" parent="Whole Level 1/Test Level/Level 2 Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play Level 1" type="Button" parent="Whole Level 1/Test Level"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpile")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2a5sr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_scr30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwryq")
+text = "Zagraj Poziom 1"
+
+[node name="Whole Level 2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -324.0
+offset_bottom = 324.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Test Level" type="VBoxContainer" parent="Whole Level 2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Level 2 sign" type="Label" parent="Whole Level 2/Test Level"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 39
+text = "Poziom 2"
+
+[node name="Level 2 Panel" type="Panel" parent="Whole Level 2/Test Level"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ulfsv")
+
+[node name="Pucharek_level2" type="TextureRect" parent="Whole Level 2/Test Level/Level 2 Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play Level 2" type="Button" parent="Whole Level 2/Test Level"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpile")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2a5sr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_scr30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwryq")
+text = "Zagraj Poziom 2"
+
+[node name="Back To Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -126.0
+offset_right = 193.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kpile")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2a5sr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_scr30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xwryq")
+text = "Wróć do menu"
+
+[connection signal="pressed" from="Whole Test/Test Level/Play Test Level" to="." method="_on_play_test_level_pressed"]
+[connection signal="pressed" from="Whole Level 1/Test Level/Play Level 1" to="." method="_on_play_level_1_pressed"]
+[connection signal="pressed" from="Whole Level 2/Test Level/Play Level 2" to="." method="_on_play_level_2_pressed"]
+[connection signal="pressed" from="Back To Menu" to="." method="_on_back_to_menu_pressed"]

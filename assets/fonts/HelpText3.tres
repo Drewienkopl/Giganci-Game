@@ -1,0 +1,14 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://dkdfp2d7r67kj"]
+
+[sub_resource type="SystemFont" id="SystemFont_hc1xp"]
+
+[sub_resource type="FontVariation" id="FontVariation_pw0c3"]
+base_font = SubResource("SystemFont_hc1xp")
+
+[resource]
+font = SubResource("FontVariation_pw0c3")
+font_size = 80
+font_color = Color(0.30029, 0.95884, 0.430284, 1)
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5

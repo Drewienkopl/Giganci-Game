@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://hjy8rfpa7574"]
+
+[ext_resource type="Script" uid="uid://bi3v5fedwqva0" path="res://scripts/ui/options_menu.gd" id="1_liyum"]
+[ext_resource type="Texture2D" uid="uid://cp15bl0db3ule" path="res://assets/sprites/Backgrounds/tlo_final.png" id="2_wj2x4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imaij"]
+texture = ExtResource("2_wj2x4")
+modulate_color = Color(0.674815, 0.674815, 0.674815, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4822"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ejsc"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.458405, 0.458405, 0.458405, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snsgv"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.458405, 0.458405, 0.458405, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj2x4"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.593134, 0.593134, 0.593133, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 5
+
+[node name="Options_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_liyum")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_imaij")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -85.5
+offset_right = 234.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4822")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ejsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_snsgv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj2x4")
+text = "Dzwięk"
+
+[node name="Language" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4822")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ejsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_snsgv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj2x4")
+text = "Język"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4822")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ejsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_snsgv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj2x4")
+text = "Wróć"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -255.5
+offset_top = 74.0
+offset_right = 255.5
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "Opcje"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

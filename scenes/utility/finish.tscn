@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6u8h8jsm4xnp"]
+
+[ext_resource type="Script" uid="uid://cgek22gsl7fya" path="res://scripts/utility/finish.gd" id="1_shebc"]
+[ext_resource type="Texture2D" uid="uid://cg3btkltf4g3t" path="res://assets/sprites/Trophys/gold_trophy.png" id="1_vy8h4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shebc"]
+size = Vector2(21, 22)
+
+[node name="Finish" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_shebc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54.5, 51)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_vy8h4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(54.5, 54)
+shape = SubResource("RectangleShape2D_shebc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

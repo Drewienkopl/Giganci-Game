@@ -1,0 +1,11 @@
+[
+	{"name": "Tutorial NPC:", "text": "Witaj bohaterze!"},
+	{"name": "Tutorial NPC:", "text": "Możesz mi pomóc?"},
+	{"name": "Ty:", "text": "Z czym potrzebujesz pomocy?"},
+	{"name": "Tutorial NPC:", "text": "Zgubiłem pieniądze, czy mógłbyś mi pomóc je odnaleść?"},
+	{"name": "Ty:", "text": "Moge ci pomóc, ale zatrzymuje 90% tego co znajde."},
+	{"name": "Tutorial NPC:", "text": "...!"},
+	{"name": "Tutorial NPC:", "text": "Poczekaj chwile..., może sam se je znajde."},
+	{"name": "Ty:", "text": "To cześć, przyniose ci jakieś drobniaki!"},
+	{"name": "Tutorial NPC:", "text": "...!"},
+]
